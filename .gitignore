@@ -72,3 +72,7 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+Server/Binaries
+Server/DummyClient/x64
+Server/GameServer/x64
+Server/ServerCore/x64

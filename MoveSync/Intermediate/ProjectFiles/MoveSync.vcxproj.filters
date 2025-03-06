@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MoveSync.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MoveSync.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MoveSyncEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\MoveSync">
+      <UniqueIdentifier>{BA91B4B7-82B2-3711-8707-593EA0F3A49C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MoveSync\MoveSync.Build.cs">
+      <Filter>Source\MoveSync</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MoveSync\MoveSync.cpp">
+      <Filter>Source\MoveSync</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MoveSync\MoveSync.h">
+      <Filter>Source\MoveSync</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

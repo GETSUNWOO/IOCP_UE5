@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\a\\documents\\iocp_ue5\\movesync\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\movesync\\permoduleinline.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\a\\documents\\iocp_ue5\\movesync\\intermediate\\build\\win64\\x64\\movesynceditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\a\\documents\\iocp_ue5\\movesync\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\movesync\\definitions.movesync.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
