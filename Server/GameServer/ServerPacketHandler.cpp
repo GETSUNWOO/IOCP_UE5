@@ -24,5 +24,6 @@ bool Handle_C_ENTER_GAME(PacketSessionRef& session, Protocol::C_ENTER_GAME& pkt)
 
 bool Handle_C_CHAT(PacketSessionRef& session, Protocol::C_CHAT& pkt)
 {
+ 	wcout << pkt.msg().c_str() << endl;
 	return true;
 }

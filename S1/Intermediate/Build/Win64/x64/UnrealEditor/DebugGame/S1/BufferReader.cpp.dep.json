@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\a\\documents\\iocp_ue5\\s1\\source\\s1\\network\\bufferreader.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\a\\documents\\iocp_ue5\\s1\\intermediate\\build\\win64\\x64\\s1editor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\a\\documents\\iocp_ue5\\s1\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\s1\\definitions.s1.h",
+            "c:\\users\\a\\documents\\iocp_ue5\\s1\\source\\s1\\network\\bufferreader.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
