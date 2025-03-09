@@ -74,6 +74,9 @@ bool RecvWorker::ReceivePacket(TArray<uint8>& OutPacket)
 	// 패킷 내용 파싱
 	TArray<uint8> PayloadBuffer;
 	const int32 PayloadSize = Header.PacketSize - HeaderSize;
+	if (PayloadSize == 0) // 내용물이 없는 패킷 처리
+		return true;
+
 	OutPacket.AddZeroed(PayloadSize);
 
 	if (ReceiveDesiredBytes(&OutPacket[HeaderSize], PayloadSize))

@@ -5,7 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Users/A/Documents/IOCP_UE5/S1/Content/Maps/DevMap.umap"
+				"C:/Users/A/Documents/IOCP_UE5/S1/Content/Maps/DevMap.umap",
+				"C:/Users/A/Documents/IOCP_UE5/S1/Content/BluePrints/BP_TestPlayer.uasset",
+				"C:/Users/A/Documents/IOCP_UE5/S1/Content/BluePrints/BP_GameInstance.uasset"
 			]
 		}
 	]
