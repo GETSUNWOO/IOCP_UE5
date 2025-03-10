@@ -1,4 +1,4 @@
-//// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Network/PacketSession.h"
@@ -25,12 +25,11 @@ void PacketSession::Run()
 	SendWorkerThread = MakeShared<SendWorker>(Socket, AsShared());
 }
 
-void PacketSession::HandleRecvPackets()
+void PacketSession::HandleRecvPackets() // recv 패킷을 소모하는 용도다!
 {
-	//메인에서 쭉 패킷을 처리해줌
 	while (true)
 	{
-		TArray<uint8> Packet;
+		TArray<uint8> Packet; ///요 패킷은 헤더와 페이로드가 전부 있는 패킷
 		if (RecvPacketQueue.Dequeue(OUT Packet) == false)
 			break;
 

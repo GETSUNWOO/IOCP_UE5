@@ -7,7 +7,7 @@
 struct PacketHeader
 {
 	uint16 size;
-	uint16 id; // 프로토콜 ID (ex 1. 로그인. 2. 이동)
+	uint16 id; // 프로토콜ID (ex. 1=로그인, 2=이동요청)
 };
 
 class SendBuffer : public TSharedFromThis<SendBuffer>
@@ -24,8 +24,8 @@ public:
 	void Close(uint32 writeSize);
 
 private:
-	TArray<BYTE> _buffer;
-	int32		 _writeSize = 0;
+	TArray<BYTE>	_buffer;
+	int32			_writeSize = 0;
 };
 
 #define USING_SHARED_PTR(name)	using name##Ref = TSharedPtr<class name>;
@@ -37,8 +37,8 @@ USING_SHARED_PTR(SendBuffer);
 #include "ClientPacketHandler.h"
 #include "S1GameInstance.h"
 #include "Kismet/GameplayStatics.h"
-#include "Engine\World.h"
+#include "Engine/World.h"
 
-#define SEND_PACKET(Pkt)													\
-	SendBufferRef SendBuffer = ClientPacketHandler::MakeSendBuffer(Pkt);	\
-	Cast<US1GameInstance>(GWorld->GetGameInstance())->SendPacket(SendBuffer);
+#define SEND_PACKET(pkt)														\
+	SendBufferRef sendBuffer = ClientPacketHandler::MakeSendBuffer(pkt);		\
+	Cast<US1GameInstance>(GWorld->GetGameInstance())->SendPacket(sendBuffer);		

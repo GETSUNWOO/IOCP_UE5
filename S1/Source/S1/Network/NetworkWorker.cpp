@@ -1,4 +1,4 @@
-//// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Network/NetworkWorker.h"
@@ -22,7 +22,7 @@ bool RecvWorker::Init()
 	return true;
 }
 
-uint32 RecvWorker::Run()
+uint32 RecvWorker::Run() // 쓰레드의 메인함수 같은 역할 죽을때까지 뺑뻉이 돌면서 패킷 생성
 {
 	while (Running)
 	{
@@ -30,7 +30,7 @@ uint32 RecvWorker::Run()
 
 		if (ReceivePacket(OUT Packet))
 		{
-			if (TSharedPtr<PacketSession> Session = SessionRef.Pin() /*표준에서는 lock*/)
+			if (TSharedPtr<PacketSession> Session = SessionRef.Pin()) //pin = lock
 			{
 				Session->RecvPacketQueue.Enqueue(Packet);
 			}
@@ -57,7 +57,7 @@ bool RecvWorker::ReceivePacket(TArray<uint8>& OutPacket)
 	TArray<uint8> HeaderBuffer;
 	HeaderBuffer.AddZeroed(HeaderSize);
 
-	if (ReceiveDesiredBytes(HeaderBuffer.GetData(), HeaderSize) == false)
+	if (ReceiveDesiredBytes(HeaderBuffer.GetData(), HeaderSize) == false) // 일단 헤더를 받아주자
 		return false;
 
 	// ID, Size 추출
@@ -74,21 +74,22 @@ bool RecvWorker::ReceivePacket(TArray<uint8>& OutPacket)
 	// 패킷 내용 파싱
 	TArray<uint8> PayloadBuffer;
 	const int32 PayloadSize = Header.PacketSize - HeaderSize;
+
 	if (PayloadSize == 0) // 내용물이 없는 패킷 처리
 		return true;
 
 	OutPacket.AddZeroed(PayloadSize);
 
-	if (ReceiveDesiredBytes(&OutPacket[HeaderSize], PayloadSize))
+	if (ReceiveDesiredBytes(&OutPacket[HeaderSize], PayloadSize)) //payload(헤더를 제외한 나머지 데이터)를 모두 받아 주자
 		return true;
 
 	return false;
 }
 
-bool RecvWorker::ReceiveDesiredBytes(uint8* Results, int32 Size)
+bool RecvWorker::ReceiveDesiredBytes(uint8* Results, int32 Size) //블로킹 방식에서 동작하기에 패킷을 전체 받을때까지 계속 돈다
 {
 	uint32 PendingDataSize;
-	if (Socket->HasPendingData(PendingDataSize) == false || PendingDataSize <= 0)
+	if (Socket->HasPendingData(PendingDataSize) == false || PendingDataSize <= 0) // 보통 0바이트가 오면 종료를 의미함
 		return false;
 
 	int32 Offset = 0;
@@ -141,7 +142,7 @@ uint32 SendWorker::Run()
 			}
 		}
 
-		// Sleep? 매 프레임 마다 실행해도 됌
+		// Sleep?
 	}
 
 	return 0;

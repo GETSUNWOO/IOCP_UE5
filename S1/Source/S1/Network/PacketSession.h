@@ -1,4 +1,4 @@
-//// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -30,6 +30,6 @@ public:
 	TSharedPtr<class SendWorker> SendWorkerThread;
 
 	// GameThread와 NetworkThread가 데이터 주고 받는 공용 큐.
-	TQueue<TArray<uint8>> RecvPacketQueue;
+	TQueue<TArray<uint8>> RecvPacketQueue; // lock_free 방식으로 동작하는 제공 queue
 	TQueue<SendBufferRef> SendPacketQueue;
 };

@@ -152,5 +152,8 @@
     <ClCompile Include="BufferReader.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="note.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

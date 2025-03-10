@@ -1,4 +1,4 @@
-//// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -8,8 +8,7 @@
 
 class FSocket;
 
-// TCP 특성상 패킷의 완성을 팓단하기 위한 헤더
-struct S1_API FPacketHeader
+struct S1_API FPacketHeader //tcp특성상 받아야할 데이터의 헤더 정보를 의미한다
 {
 	FPacketHeader() : PacketSize(0), PacketID(0)
 	{
@@ -26,12 +25,10 @@ struct S1_API FPacketHeader
 		return Ar;
 	}
 
-	// 패킷 헤더와 페이로드 사이즈를 포함한 정책 사용 
-	uint16 PacketSize;
+	uint16 PacketSize; // 헤더 사이즈 포함으로 정했다!
 	uint16 PacketID;
 };
 
-// recv
 class S1_API RecvWorker : public FRunnable
 {
 public:
@@ -55,7 +52,7 @@ protected:
 	TWeakPtr<class PacketSession> SessionRef;
 };
 
-//send
+
 class S1_API SendWorker : public FRunnable
 {
 public:

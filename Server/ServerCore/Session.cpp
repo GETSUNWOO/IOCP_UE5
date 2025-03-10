@@ -165,7 +165,7 @@ void Session::RegisterSend()
 
 	// 보낼 데이터를 sendEvent에 등록
 	{
-		//WRITE_LOCK;
+		//WRITE_LOCK; -> 표준 lock은 중복 락이 안되기에 수정해야했다
 
 		int32 writeSize = 0;
 		while (_sendQueue.empty() == false)

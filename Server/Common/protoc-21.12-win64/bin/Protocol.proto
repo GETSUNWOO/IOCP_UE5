@@ -5,44 +5,56 @@ import "Enum.proto";
 import "Struct.proto";
 
 
-message C_LOGIN
+message C_LOGIN // c to s
 {
-
+	
 }
 
-message S_LOGIN
+message S_LOGIN // s to c
 {
 	bool success = 1;
-	repeated PlayerInfo players = 2;
+	repeated ObjectInfo players = 2; // roby 에서 케릭터 목록을 묘사한 것
 }
 
 message C_ENTER_GAME
 {
-	uint64 playerIndex = 1;
+	uint64 playerIndex = 1; //
 }
 
 message S_ENTER_GAME
 {
 	bool success = 1;
-	PlayerInfo player = 2;
+	ObjectInfo player = 2; // 대부분의 경우는 좀 달라야 할 거 (채택된 케릭터)
 }
 
 message C_LEAVE_GAME
 {
+
 }
 
 message S_LEAVE_GAME
 {
+
 }
 
 message S_SPAWN
 {
-	repeated PlayerInfo players = 1;
+	repeated ObjectInfo players = 1;
 }
 
 message S_DESPAWN
 {
 	repeated uint64 object_ids = 1;
+}
+
+message C_MOVE
+{
+	PosInfo info = 1;
+}
+
+message S_MOVE
+{
+	PosInfo info = 1;
 }
 
 message C_CHAT
