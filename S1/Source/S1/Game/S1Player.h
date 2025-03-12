@@ -25,6 +25,7 @@ public:
 	bool IsMyPlayer();
 
 	void SetMoveState(Protocol::MoveState State);
+	void SetPlayerType(Protocol::PlayerType Type) { PlayerType = Type; }
 	Protocol::MoveState GetMoveState() { return PlayerInfo->state(); }
 
 public:
@@ -35,4 +36,5 @@ public:
 protected:
 	class Protocol::PosInfo* PlayerInfo; // 현재위치 (나중엔 스탯등 정보가 늘어날 여지)
 	class Protocol::PosInfo* DestInfo; // 목적지
+	Protocol::PlayerType PlayerType = Protocol::PlayerType::PLAYER_TYPE_NONE;
 };

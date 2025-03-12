@@ -15,6 +15,7 @@ public:
 	virtual ~Player();
 
 public:
+	Protocol::PlayerType playerType;
 	weak_ptr<GameSession> session;
 };
 

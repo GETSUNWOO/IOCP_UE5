@@ -510,15 +510,15 @@ class C_ENTER_GAME final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIndexFieldNumber = 1,
+    kPlayerTypeFieldNumber = 1,
   };
-  // uint64 playerIndex = 1;
-  void clear_playerindex();
-  uint64_t playerindex() const;
-  void set_playerindex(uint64_t value);
+  // .Protocol.PlayerType player_type = 1;
+  void clear_player_type();
+  ::Protocol::PlayerType player_type() const;
+  void set_player_type(::Protocol::PlayerType value);
   private:
-  uint64_t _internal_playerindex() const;
-  void _internal_set_playerindex(uint64_t value);
+  ::Protocol::PlayerType _internal_player_type() const;
+  void _internal_set_player_type(::Protocol::PlayerType value);
   public:
 
   // @@protoc_insertion_point(class_scope:Protocol.C_ENTER_GAME)
@@ -529,7 +529,7 @@ class C_ENTER_GAME final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint64_t playerindex_;
+    int player_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -660,6 +660,7 @@ class S_ENTER_GAME final :
   enum : int {
     kPlayerFieldNumber = 2,
     kSuccessFieldNumber = 1,
+    kPlayerTypeFieldNumber = 3,
   };
   // .Protocol.ObjectInfo player = 2;
   bool has_player() const;
@@ -688,6 +689,15 @@ class S_ENTER_GAME final :
   void _internal_set_success(bool value);
   public:
 
+  // .Protocol.PlayerType player_type = 3;
+  void clear_player_type();
+  ::Protocol::PlayerType player_type() const;
+  void set_player_type(::Protocol::PlayerType value);
+  private:
+  ::Protocol::PlayerType _internal_player_type() const;
+  void _internal_set_player_type(::Protocol::PlayerType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Protocol.S_ENTER_GAME)
  private:
   class _Internal;
@@ -698,6 +708,7 @@ class S_ENTER_GAME final :
   struct Impl_ {
     ::Protocol::ObjectInfo* player_;
     bool success_;
+    int player_type_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1965,24 +1976,24 @@ S_LOGIN::players() const {
 
 // C_ENTER_GAME
 
-// uint64 playerIndex = 1;
-inline void C_ENTER_GAME::clear_playerindex() {
-  _impl_.playerindex_ = uint64_t{0u};
+// .Protocol.PlayerType player_type = 1;
+inline void C_ENTER_GAME::clear_player_type() {
+  _impl_.player_type_ = 0;
 }
-inline uint64_t C_ENTER_GAME::_internal_playerindex() const {
-  return _impl_.playerindex_;
+inline ::Protocol::PlayerType C_ENTER_GAME::_internal_player_type() const {
+  return static_cast< ::Protocol::PlayerType >(_impl_.player_type_);
 }
-inline uint64_t C_ENTER_GAME::playerindex() const {
-  // @@protoc_insertion_point(field_get:Protocol.C_ENTER_GAME.playerIndex)
-  return _internal_playerindex();
+inline ::Protocol::PlayerType C_ENTER_GAME::player_type() const {
+  // @@protoc_insertion_point(field_get:Protocol.C_ENTER_GAME.player_type)
+  return _internal_player_type();
 }
-inline void C_ENTER_GAME::_internal_set_playerindex(uint64_t value) {
+inline void C_ENTER_GAME::_internal_set_player_type(::Protocol::PlayerType value) {
   
-  _impl_.playerindex_ = value;
+  _impl_.player_type_ = value;
 }
-inline void C_ENTER_GAME::set_playerindex(uint64_t value) {
-  _internal_set_playerindex(value);
-  // @@protoc_insertion_point(field_set:Protocol.C_ENTER_GAME.playerIndex)
+inline void C_ENTER_GAME::set_player_type(::Protocol::PlayerType value) {
+  _internal_set_player_type(value);
+  // @@protoc_insertion_point(field_set:Protocol.C_ENTER_GAME.player_type)
 }
 
 // -------------------------------------------------------------------
@@ -2092,6 +2103,26 @@ inline void S_ENTER_GAME::set_allocated_player(::Protocol::ObjectInfo* player) {
   }
   _impl_.player_ = player;
   // @@protoc_insertion_point(field_set_allocated:Protocol.S_ENTER_GAME.player)
+}
+
+// .Protocol.PlayerType player_type = 3;
+inline void S_ENTER_GAME::clear_player_type() {
+  _impl_.player_type_ = 0;
+}
+inline ::Protocol::PlayerType S_ENTER_GAME::_internal_player_type() const {
+  return static_cast< ::Protocol::PlayerType >(_impl_.player_type_);
+}
+inline ::Protocol::PlayerType S_ENTER_GAME::player_type() const {
+  // @@protoc_insertion_point(field_get:Protocol.S_ENTER_GAME.player_type)
+  return _internal_player_type();
+}
+inline void S_ENTER_GAME::_internal_set_player_type(::Protocol::PlayerType value) {
+  
+  _impl_.player_type_ = value;
+}
+inline void S_ENTER_GAME::set_player_type(::Protocol::PlayerType value) {
+  _internal_set_player_type(value);
+  // @@protoc_insertion_point(field_set:Protocol.S_ENTER_GAME.player_type)
 }
 
 // -------------------------------------------------------------------

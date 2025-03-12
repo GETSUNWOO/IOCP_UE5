@@ -21,10 +21,10 @@ bool Handle_S_LOGIN(PacketSessionRef& session, Protocol::S_LOGIN& pkt)
 		const Protocol::ObjectInfo& Player = pkt.players(i);
 	}
 
-	//TODO: 로비에서 케릭터 선택해서 인덱스 전송
+	//TODO: 로비에서 케릭터 타입 선택하기
 
 	Protocol::C_ENTER_GAME EnterGamePkt;
-	EnterGamePkt.set_playerindex(0);
+	EnterGamePkt.set_player_type(Protocol::PLAYER_TYPE_ARCHER);
 	SEND_PACKET(EnterGamePkt);
 
 
@@ -53,7 +53,7 @@ bool Handle_S_SPAWN(PacketSessionRef& session, Protocol::S_SPAWN& pkt)
 {
 	if (auto* GameInstance = Cast<US1GameInstance>(GWorld->GetGameInstance()))
 	{
-		GameInstance->HandleSpawn(pkt);
+		GameInstance->HandleSpawn(pkt,Protocol::PLAYER_TYPE_ARCHER); //TEMP
 	}
 	return true;
 }

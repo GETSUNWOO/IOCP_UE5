@@ -32,6 +32,7 @@ bool Room::EnterRoom(ObjectRef object)
 		Protocol::ObjectInfo* playerInfo = new Protocol::ObjectInfo();
 		playerInfo->CopyFrom(*player->objectInfo);
 		enterGamePkt.set_allocated_player(playerInfo);
+		enterGamePkt.set_player_type(player->playerType);
 		//enterGemaPkt.release_player(); -> 위에처럼 카피해서 allocated 하는게 아니면 release해주어야 한다
 
 		SendBufferRef sendBuffer = ServerPacketHandler::MakeSendBuffer(enterGamePkt);

@@ -30,9 +30,9 @@ public:
 
 public:
 
-	void HandleSpawn(const Protocol::ObjectInfo& PlayerInfo, bool IsMine);
+	void HandleSpawn(const Protocol::ObjectInfo& PlayerInfo, const Protocol::PlayerType PlayerType ,bool IsMine);
 	void HandleSpawn(const Protocol::S_ENTER_GAME& EnterGamePkt);
-	void HandleSpawn(const Protocol::S_SPAWN& SpawnPkt);
+	void HandleSpawn(const Protocol::S_SPAWN& SpawnPkt, const Protocol::PlayerType PlayerType);
 
 	void HandleDespawn(uint64 ObjectId);
 	void HandleDespawn(const Protocol::S_DESPAWN& DespawnPkt);

@@ -25,6 +25,7 @@ bool Handle_C_LOGIN(PacketSessionRef& session, Protocol::C_LOGIN& pkt)
 	for (int32 i = 0; i < 3; i++)
 	{
 		Protocol::ObjectInfo* player = loginPkt.add_players();
+		player->set_object_type(Protocol::ObjectType::ObjectType_TYPE_CREATURE);
 		Protocol::PosInfo* posInfo = player->mutable_pos_info();
 		posInfo->set_x(Utils::GetRandom(0.f, 100.f));
 		posInfo->set_y(Utils::GetRandom(0.f, 100.f));
@@ -45,7 +46,7 @@ bool Handle_C_ENTER_GAME(PacketSessionRef& session, Protocol::C_ENTER_GAME& pkt)
 	//생성해서 입장시켜주는게 좀 편리한 것 같다.
 
 	//플레이어 생성
-	PlayerRef player = ObjectUtils::CreatePlayer(static_pointer_cast<GameSession>(session));
+	PlayerRef player = ObjectUtils::CreatePlayer(static_pointer_cast<GameSession>(session),pkt.player_type());
 
 	//방에 입장
 	if (player->objectInfo->object_id() > 4) return false;

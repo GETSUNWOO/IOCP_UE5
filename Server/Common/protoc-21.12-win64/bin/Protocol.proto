@@ -18,13 +18,14 @@ message S_LOGIN // s to c
 
 message C_ENTER_GAME
 {
-	uint64 playerIndex = 1; //
+	PlayerType player_type = 1;
 }
 
 message S_ENTER_GAME
 {
 	bool success = 1;
 	ObjectInfo player = 2; // 대부분의 경우는 좀 달라야 할 거 (채택된 케릭터)
+	PlayerType player_type = 3;
 }
 
 message C_LEAVE_GAME

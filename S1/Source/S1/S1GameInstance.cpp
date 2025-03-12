@@ -84,7 +84,7 @@ void US1GameInstance::SendPacket(SendBufferRef SendBuffer)
 	GameServerSession->SendPacket(SendBuffer);
 }
 
-void US1GameInstance::HandleSpawn(const Protocol::ObjectInfo& ObjectInfo, bool IsMine)
+void US1GameInstance::HandleSpawn(const Protocol::ObjectInfo& ObjectInfo,const Protocol::PlayerType PlayerType , bool IsMine)
 {
 	if (Socket == nullptr && GameServerSession == nullptr)
 		return;
@@ -119,14 +119,14 @@ void US1GameInstance::HandleSpawn(const Protocol::ObjectInfo& ObjectInfo, bool I
 
 void US1GameInstance::HandleSpawn(const Protocol::S_ENTER_GAME& EnterGamePkt)
 {
-	HandleSpawn(EnterGamePkt.player(), true);
+	HandleSpawn(EnterGamePkt.player(), EnterGamePkt.player_type(), true);
 }
 
-void US1GameInstance::HandleSpawn(const Protocol::S_SPAWN& SpawnPkt)
+void US1GameInstance::HandleSpawn(const Protocol::S_SPAWN& SpawnPkt, const Protocol::PlayerType PlayerType)
 {
 	for (auto& Player : SpawnPkt.players())
 	{
-		HandleSpawn(Player, false);
+		HandleSpawn(Player, PlayerType, false);
 	}
 }
 
