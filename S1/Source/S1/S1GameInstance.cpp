@@ -107,12 +107,14 @@ void US1GameInstance::HandleSpawn(const Protocol::ObjectInfo& ObjectInfo,const P
 
 		Player->SetPosInfo(ObjectInfo.pos_info());
 		MyPlayer = Player;
+		MyPlayer->SetPlayerType(PlayerType);
 		Players.Add(ObjectInfo.object_id(), Player);
 	}
 	else
 	{
 		AS1Player* Player = Cast<AS1Player>(World->SpawnActor(OtherPlayerClass, &SpawnLocation));
 		Player->SetPosInfo(ObjectInfo.pos_info());
+		Player->SetPlayerType(PlayerType);
 		Players.Add(ObjectInfo.object_id(), Player);
 	}
 }

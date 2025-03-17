@@ -19,4 +19,13 @@ public:
 protected:
 	virtual void BeginPlay()override;
 	virtual void Tick(float DeltaTime)override;
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void SetDesiredMove();
+
+	UFUNCTION(BlueprintCallable)
+	void SetDesiredInputX(double value) { DesiredInput.X = value; }
+	UFUNCTION(BlueprintCallable)
+	void SetDesiredInputY(double value) { DesiredInput.Y = value; }
 };

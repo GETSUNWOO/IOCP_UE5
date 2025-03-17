@@ -11,6 +11,15 @@ class AS1SpawnPoint;
 /**
  * 
  */
+UENUM(BlueprintType)
+enum class EPlayerType : uint8 
+{
+	PLAYER_TYPE_NONE = 0 UMETA(DisplayName = "None"),
+	PLAYER_TYPE_ARCHER = 1 UMETA(DisplayName = "Archer"),
+	PLAYER_TYPE_GUNNER = 2 UMETA(DisplayName = "Gunner"),
+	PLAYER_TYPE_MAGE = 3 UMETA(DisplayName = "Sorcerer")
+};
+
 UCLASS()
 class S1_API US1GameInstance : public UGameInstance
 {
@@ -52,5 +61,8 @@ public:
 
 	AS1Player* MyPlayer;
 	TMap<uint64, AS1Player*> Players;
+
+	UPROPERTY(BlueprintReadWrite)
+	EPlayerType _PlayerType;
 
 };

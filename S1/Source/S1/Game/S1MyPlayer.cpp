@@ -107,53 +107,53 @@ void AS1MyPlayer::Tick(float DeltaTime)
 void AS1MyPlayer::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D MovementVector = Value.Get<FVector2D>();
+	//FVector2D MovementVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
-	{
-		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
+	//if (Controller != nullptr)
+	//{
+	//	// find out which way is forward
+	//	const FRotator Rotation = Controller->GetControlRotation();
+	//	const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get forward vector
-		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+	//	// get forward vector
+	//	const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 
-		// get right vector 
-		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+	//	// get right vector 
+	//	const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
-		// add movement 
-		AddMovementInput(ForwardDirection, MovementVector.Y);
-		AddMovementInput(RightDirection, MovementVector.X);
-		
-		//Cache
-		{
-			//키보드 입력 벡터
-			DesiredInput = MovementVector;
+	//	// add movement 
+	//	AddMovementInput(ForwardDirection, MovementVector.Y);
+	//	AddMovementInput(RightDirection, MovementVector.X);
+	//	
+	//	//Cache
+	//	{
+	//		//키보드 입력 벡터
+	//		DesiredInput = MovementVector;
 
-			//카메라 방향으로 최종적으로 움직여야하는 목적지의 방향벡터
-			DesiredMoveDirection = FVector::ZeroVector;
-			DesiredMoveDirection += ForwardDirection * MovementVector.Y;
-			DesiredMoveDirection += RightDirection * MovementVector.X;
-			DesiredMoveDirection.Normalize();
+	//		//카메라 방향으로 최종적으로 움직여야하는 목적지의 방향벡터
+	//		DesiredMoveDirection = FVector::ZeroVector;
+	//		DesiredMoveDirection += ForwardDirection * MovementVector.Y;
+	//		DesiredMoveDirection += RightDirection * MovementVector.X;
+	//		DesiredMoveDirection.Normalize();
 
-			const FVector Location = GetActorLocation();
-			FRotator Rotator = UKismetMathLibrary::FindLookAtRotation(Location, Location + DesiredMoveDirection);
-			DesiredYaw = Rotator.Yaw;
-		}
-	}
+	//		const FVector Location = GetActorLocation();
+	//		FRotator Rotator = UKismetMathLibrary::FindLookAtRotation(Location, Location + DesiredMoveDirection);
+	//		DesiredYaw = Rotator.Yaw;
+	//	}
+	//}
 }
 
 void AS1MyPlayer::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D LookAxisVector = Value.Get<FVector2D>();
+	//FVector2D LookAxisVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
-	{
-		// add yaw and pitch input to controller
-		AddControllerYawInput(LookAxisVector.X);
-		AddControllerPitchInput(LookAxisVector.Y);
-	}
+	//if (Controller != nullptr)
+	//{
+	//	// add yaw and pitch input to controller
+	//	AddControllerYawInput(LookAxisVector.X);
+	//	AddControllerPitchInput(LookAxisVector.Y);
+	//}
 }
 
 
